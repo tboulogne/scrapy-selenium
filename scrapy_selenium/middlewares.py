@@ -120,6 +120,9 @@ class SeleniumMiddleware:
 
         if request.script:
             self.driver.execute_script(request.script)
+            
+        if request.windows_size:
+            self.driver.set_window_size(request.windows_size)
 
         body = str.encode(self.driver.page_source)
 
