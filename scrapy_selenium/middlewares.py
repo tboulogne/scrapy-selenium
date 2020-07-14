@@ -122,7 +122,8 @@ class SeleniumMiddleware:
             self.driver.execute_script(request.script)
             
         if request.windows_size:
-            self.driver.set_window_size(request.windows_size)
+            width, height = request.windows_size.split(",")
+            self.driver.set_window_size(width, height)
 
         body = str.encode(self.driver.page_source)
 
